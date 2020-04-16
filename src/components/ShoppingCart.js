@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+
+//import Context
+import { CartContext } from "../contexts/CartContext";
 // Components
 import Item from './ShoppingCartItem';
 
 const ShoppingCart = () => {
+	//passing cartContext to useContext hook
+	const cart = useContext(CartContext);
+
 	const getCartTotal = () => {
 		return cart.reduce((acc, value) => {
 			return acc + value.price;
